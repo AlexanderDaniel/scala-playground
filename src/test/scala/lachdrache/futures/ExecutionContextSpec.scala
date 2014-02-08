@@ -6,6 +6,9 @@ import scala.concurrent.duration.Duration
 
 
 /**
+ * You should run the test on its own, i.e.
+ * `test-only lachdrache.futures.ExecutionContextSpec`
+ *
  * Based on blog post and Gist by Jessica Kerr
  * - http://blog.jessitron.com/2014/02/scala-global-executioncontext-makes.html
  * - https://gist.github.com/jessitron/8777503
