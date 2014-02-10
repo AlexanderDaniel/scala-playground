@@ -1,4 +1,4 @@
-package lachdrache
+package lachdrache.collections
 
 import org.specs2.mutable.Specification
 
