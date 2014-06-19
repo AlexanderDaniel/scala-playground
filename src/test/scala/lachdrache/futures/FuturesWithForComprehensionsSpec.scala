@@ -10,20 +10,20 @@ class FuturesWithForComprehensionsSpec extends Specification {
 
   case class TstException() extends Exception
 
-  private def tst: Future[String] =
-    for {
-      a <- Future("a")
-      intermediateAssignment = {
-        throw TstException()
-      }
-      b <- Future(a + "b")
-    } yield b
-
-  "exception of assigment in for comprehension" should {
+  "exception of assignment in for comprehension" should {
     "end up in Try of the future" in {
       val future = tst
       Await.ready(future, Duration.Inf)
       future.value.get === Failure(TstException())
     }
   }
+
+  private def tst: Future[String] = for {
+    a <- Future("a")
+    intermediateAssignment = {
+      throw TstException()
+    }
+    b <- Future(a + "b")
+  } yield b
+
 }
